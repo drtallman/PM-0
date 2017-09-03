@@ -1,5 +1,5 @@
 /*
-vm.cpp
+VM.cpp
 Author: Dane Tallman
 
 The P-machine is a stack machine with two memory stores: the “stack”, which is organized as a stack and contains the data to be used by the PM/0 CPU, 
@@ -13,24 +13,45 @@ Each instruction contains three components (OP, L, M) that are separated by one 
 OP	is the operation code (opcode).
 L	indicates the lexicographical level.
 M	depending of the operators it indicates:
-- A number (instructions: LIT, INC).
-- A program address (instructions: JMP, JPC, CAL).
-- A data address (instructions: LOD, STO)
-- The identity of the operator OPR
-(e.g. OPR 0, 2 (ADD) or OPR 0, 4 (MUL)).
+	- A number (instructions: LIT, INC).
+	- A program address (instructions: JMP, JPC, CAL).
+	- A data address (instructions: LOD, STO)
+	- The identity of the operator OPR
+	(e.g. OPR 0, 2 (ADD) or OPR 0, 4 (MUL)).
 */
 
 #include "stdafx.h"
-#include "vm.h"
+#include "VM.h"
 
-#define MAX_STACK_HEIGHT 2000
-#define MAX_CODE_LENGTH 500
-#define MAX_LEXI_LEVELS 3
+using namespace std;
 
-int VM::Execute() {
-	int stack[MAX_STACK_HEIGHT] = {0};
+VM::VM()
+{
+	// Initialize stack to 0
+	stack[0] = 1;
 
-	return 0;
+	// Initial values for PM/0 CPU registers
+	sp = 0;
+	bp = 1;
+	pc = 0;
+	ir = 0;
+}
+
+bool VM::Start()
+{
+	return true;
+}
+
+
+bool VM::Fetch()
+{
+	return false;
+}
+
+bool VM::Execute() 
+{
+
+	return false;
 }
 
 // Find a variable in a different activation record some L levels down

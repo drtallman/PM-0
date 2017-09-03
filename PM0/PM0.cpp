@@ -3,10 +3,14 @@
 //
 
 #include "stdafx.h"
+#include "VM.h"
 
 
 int main()
 {
+	VM vm;
+	vm.Start();
+
     return 0;
 }
 
